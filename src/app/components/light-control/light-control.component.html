@@ -1,0 +1,34 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Điều khiển đèn</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modalRef.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+    <div class="modal-body">
+        <div class="flex-row">
+            <div class="info-box">
+                <span class="info-box-icon bg-success"><i class="fa-solid fa-lightbulb"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Chế độ hiện tại:</span>
+                    <span class="info-box-number">{{mode == "manual" ? "thủ công" : "tự động"}}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+
+            <button type="button" class="btn btn-info p-2 ml-2" (click)="swapMode()">
+            Đổi sang chế độ {{mode == "auto" ? "thủ công" : "tự động"}}
+            </button>
+
+            <div class="p-2" [hidden]="mode == 'auto'">
+                <button type="button" class="btn btn-info mr-3" (click)="turnOn()">Bật đèn</button>
+                <button type="button" class="btn btn-info" (click)="turnOff()">Tắt đèn</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" (click)="modalRef.close()">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+</div>

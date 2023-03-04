@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project-iot-fe';
+
+  role: string = "NONE";
+
+  ngOnInit(): void {
+    this.role = sessionStorage.getItem('role') as string;
+  }
 }
